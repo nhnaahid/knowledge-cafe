@@ -13,8 +13,11 @@ function App() {
     setBookmarks(newBookmarks);
   }
 
-  const handleMarkRead = (time) => {
+  const handleMarkRead = (time, id) => {
     setSpentTime(spentTime + time);
+    // remove bookmark
+    const remainingBookmark = bookmarks.filter(bookmark => bookmark.id !== id);
+    setBookmarks(remainingBookmark);
   }
   return (
     <div className='p-3 md:p-0'>
